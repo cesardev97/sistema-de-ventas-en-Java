@@ -197,8 +197,8 @@ public class Ctrl_Producto implements ActionListener {
             int idProducto = Crud_Producto.idProducto;
             Producto producto = new Producto();
             Crud_Producto controlProducto = new Crud_Producto();
-            String iva = "";
-            String categoria = "";
+            String iva = FrmProducto.jComboBox_gestionarIGV.getSelectedItem().toString().trim();
+            String categoria = FrmProducto.jComboBox_gestionarCategoria.getSelectedItem().toString().trim();
             String can = FrmProducto.txt_gestionar_cantidad.getText().trim();
             String pre = FrmProducto.txt_gestionar_precio.getText().trim();
 
@@ -284,93 +284,6 @@ public class Ctrl_Producto implements ActionListener {
                 }
             }
         }
-//        if (e.getSource() == vista.btn_actualizar) {
-//            int idProducto = Crud_Producto.idProducto;
-//            Producto producto = new Producto();
-//            Crud_Producto controlProducto = new Crud_Producto();
-//            String iva = FrmProducto.jComboBox_gestionarIGV.getSelectedItem().toString().trim();
-//            String categoria = FrmProducto.jComboBox_gestionarCategoria.getSelectedItem().toString().trim();
-//            String can = FrmProducto.txt_gestionar_cantidad.getText().trim();
-//            String pre = FrmProducto.txt_gestionar_precio.getText().trim();
-//
-//            // Validar campos
-//            if (idProducto == 0) {
-//                JOptionPane.showMessageDialog(null, "¡Seleccione un Producto!");
-//            } else {
-//                if (FrmProducto.txt_gestionar_nombre.getText().isEmpty() || can.isEmpty() || pre.isEmpty()) {
-//                    JOptionPane.showMessageDialog(null, "Complete todos los campos");
-//                } else {
-//                    // Validar que los campos cantidad y precio sean numéricos
-//                    if (esNumerico(can) && esNumerico(pre)) {
-//                        if (iva.equalsIgnoreCase("Seleccione IGV:")) {
-//                            JOptionPane.showMessageDialog(null, "Seleccione un IGV válido");
-//                        } else {
-//                            if (categoria.equalsIgnoreCase("Seleccione categoria:")) {
-//                                JOptionPane.showMessageDialog(null, "Seleccione una categoría válida");
-//                            } else {
-//                                try {
-//                                    producto.setNombre(FrmProducto.txt_gestionar_nombre.getText().trim());
-//                                    producto.setCantidad(Integer.parseInt(can));
-//                                    String precioTXT = pre;
-//                                    double Precio = 0.0;
-//                                    boolean aux = false;
-//
-//                                    // Si el usuario ingresa ',' (coma) como punto decimal, lo transformamos a '.'
-//                                    for (int i = 0; i < precioTXT.length(); i++) {
-//                                        if (precioTXT.charAt(i) == ',') {
-//                                            String precioNuevo = precioTXT.replace(",", ".");
-//                                            Precio = Double.parseDouble(precioNuevo);
-//                                            aux = true;
-//                                        }
-//                                    }
-//                                    // Evaluar la condición
-//                                    if (aux) {
-//                                        producto.setPrecio(Precio);
-//                                    } else {
-//                                        Precio = Double.parseDouble(precioTXT);
-//                                        producto.setPrecio(Precio);
-//                                    }
-//                                    // Actualiza la descripción y el IGV
-//                                    producto.setDiscripcion(FrmProducto.txt_gestionar_discripcion.getText().trim());
-//                                    if (iva.equalsIgnoreCase("Sin IGV")) {
-//                                        producto.setIGV(0);
-//                                    } else if (iva.equalsIgnoreCase("16%")) {
-//                                        producto.setIGV(16);
-//                                    } else if (iva.equalsIgnoreCase("18%")) {
-//                                        producto.setIGV(18);
-//                                    }
-//
-//                                    // ID de categoría - cargar método que obtiene el id de categoría
-//                                    this.IdCategoria2();
-//                                    producto.setIdCategoria(obtenerIdCategoriaCombo);
-//                                    producto.setEstado(1);
-//
-//                                    // Mostrar un cuadro de diálogo de confirmación
-//                                    int confirmacion = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que quieres ACTUALIZAR este PRODUCTO seleccionado?", "Confirmar Actualización", JOptionPane.YES_NO_OPTION);
-//                                    if (confirmacion == JOptionPane.YES_OPTION) {
-//                                        if (controlProducto.actualizar(producto, idProducto)) {
-//                                            JOptionPane.showMessageDialog(null, "Registro Actualizado");
-//                                            // Se enviará los datos a tb_auditoria
-//                                            registrarAccion("Logró actualizar el producto con id: " + idProducto + "");
-//                                            Crud_Producto.CargarTablaProductos();
-//                                            Crud_Producto.CargarComboCategorias();
-//                                            FrmProducto.jComboBox_gestionarIGV.setSelectedItem("Seleccione IGV:");
-//                                            Crud_Producto.Limpiar2();
-//                                        } else {
-//                                            JOptionPane.showMessageDialog(null, "Error al Actualizar desde el controlador");
-//                                        }
-//                                    }
-//                                } catch (HeadlessException | NumberFormatException a) {
-//                                    System.out.println("Error en: " + a);
-//                                }
-//                            }
-//                        }
-//                    } else {
-//                        JOptionPane.showMessageDialog(null, "Los campos CANTIDAD y PRECIO solo aceptan valores numéricos");
-//                    }
-//                }
-//            }
-//        }
 
         if (e.getSource() == vista.btn_eliminar) {
             int idProducto = Crud_Producto.idProducto;

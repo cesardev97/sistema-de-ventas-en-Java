@@ -6,7 +6,6 @@ package Vistas;
 
 import DAO.Crud_HistorialVentas;
 import controlador.Ctrl_HistorialVentas;
-import java.io.IOException;
 
 
 /**
@@ -41,17 +40,14 @@ public class FrmHistorialVentas extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_ventas = new javax.swing.JTable();
         btn_filtrar = new javax.swing.JButton();
-        jButton_ExporExcel = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 204));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel8.setText("HISTORIAL DE VENTAS ");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 24, -1, -1));
 
         jTable_ventas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -70,8 +66,6 @@ public class FrmHistorialVentas extends javax.swing.JPanel {
             jTable_ventas.getColumnModel().getColumn(0).setPreferredWidth(1);
         }
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 90, 910, 378));
-
         btn_filtrar.setBackground(new java.awt.Color(255, 204, 0));
         btn_filtrar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_filtrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/filtrar.png"))); // NOI18N
@@ -79,18 +73,35 @@ public class FrmHistorialVentas extends javax.swing.JPanel {
         btn_filtrar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btn_filtrar.setBorderPainted(false);
         btn_filtrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btn_filtrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(836, 17, 126, 48));
 
-        jButton_ExporExcel.setBackground(new java.awt.Color(255, 204, 0));
-        jButton_ExporExcel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton_ExporExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ex.png"))); // NOI18N
-        jButton_ExporExcel.setText("EXPORTAR EXCEL");
-        jButton_ExporExcel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_ExporExcelActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton_ExporExcel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 51, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(332, 332, 332)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_filtrar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 910, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(47, 47, 47))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(btn_filtrar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -104,21 +115,9 @@ public class FrmHistorialVentas extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton_ExporExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ExporExcelActionPerformed
-         ExportarExcel obj;
-        try {
-            obj = new ExportarExcel();
-            obj.exportarExcel(jTable_ventas);
-            } catch (IOException ex) {
-                System.out.println("Erro " + ex);
-            }
-        
-    }//GEN-LAST:event_jButton_ExporExcelActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton btn_filtrar;
-    private javax.swing.JButton jButton_ExporExcel;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     public static javax.swing.JScrollPane jScrollPane1;
