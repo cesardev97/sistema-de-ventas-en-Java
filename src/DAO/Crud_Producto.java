@@ -336,13 +336,15 @@ public class Crud_Producto extends Conexion {
      * **************************************************
      * metodo para eliminar un producto
      * **************************************************
+     * @param idProducto
+     * @return 
      */
     public boolean eliminar(int idProducto) {
         boolean respuesta = false;
         Connection cn = Conexion.conectar();
         try {
             PreparedStatement consulta = cn.prepareStatement(
-                    "UPDATE from tb_producto SET estado = 0 where idProducto = ?");
+                    "UPDATE tb_producto SET estado = 0 where idProducto = ?");
             consulta.setInt(1, idProducto);
 
             if (consulta.executeUpdate() > 0) {
