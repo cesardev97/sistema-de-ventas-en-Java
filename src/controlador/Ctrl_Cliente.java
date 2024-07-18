@@ -202,7 +202,7 @@ public class Ctrl_Cliente implements ActionListener {
                 int confirmacion = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que quieres eliminar este cliente?", "Confirmar Eliminación", JOptionPane.YES_NO_OPTION);
                 // Verificar si el usuario confirmó la eliminación
                 if (confirmacion == JOptionPane.YES_OPTION) {
-                    if (!controlCliente.eliminar(idCliente)) {
+                    if (controlCliente.eliminar(idCliente)) {
                         JOptionPane.showMessageDialog(null, "¡Cliente Eliminado!");
                         //se enviará los datos a tb_aditoria
                         registrarAccion("Logró eliminar un cliente con id: " + idCliente);

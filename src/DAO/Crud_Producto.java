@@ -111,7 +111,7 @@ public class Crud_Producto extends Conexion {
 
         Connection con = Conexion.conectar();
         DefaultTableModel model = new DefaultTableModel(); //verificar
-        String sql = "select p.idProducto, p.nombre, p.cantidad, p.precio, p.discripcion, p.IGV, c.discripcion, p.estado from tb_producto As p, tb_categoria As c where p.idCategoria = c.idCategoria order by p.nombre ASC;";
+        String sql = "select p.idProducto, p.nombre, p.cantidad, p.precio, p.discripcion, p.IGV, c.discripcion, p.estado from tb_producto As p, tb_categoria As c where p.idCategoria = c.idCategoria order by p.idProducto DESC;";
         Statement st;
         try {
             st = con.createStatement();

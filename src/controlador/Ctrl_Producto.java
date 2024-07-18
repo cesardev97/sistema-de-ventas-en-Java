@@ -311,12 +311,6 @@ public class Ctrl_Producto implements ActionListener {
         }
 
     }
-////comprueba que sean numericos los campos 
-//
-//    private boolean esNumerico(String str) {
-//        return str.chars().allMatch(Character::isDigit);
-//    }
-    // Método esNumerico modificado para permitir números decimales con punto o coma
 
     public boolean esNumerico(String str) {
         try {
@@ -380,13 +374,5 @@ public class Ctrl_Producto implements ActionListener {
         }
     }
 
-    /**
-     *
-     * metodos panel izquierdo
-     */
-    // Metodo para cargar las categorias en el combo (panel derecho)
-    /**
-     *
-     * metodos panel derecho
-     */
+   
 }
