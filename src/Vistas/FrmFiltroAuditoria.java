@@ -7,6 +7,7 @@ package Vistas;
 import DAO.Crud_Auditoria;
 import controlador.Ctrl_Auditoria;
 import controlador.Ctrl_FiltrarAuditoria;
+import java.io.IOException;
 //import DAO.Crud_HistorialVentas;
 //import controlador.Ctrl_HistorialVentas;
 
@@ -46,6 +47,7 @@ public class FrmFiltroAuditoria extends javax.swing.JPanel {
         btn_filtrar = new javax.swing.JButton();
         jDateEvento = new com.toedter.calendar.JDateChooser();
         btn_regresarAuditoria = new javax.swing.JButton();
+        jButton_ExporExcel = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 204));
 
@@ -90,6 +92,16 @@ public class FrmFiltroAuditoria extends javax.swing.JPanel {
         btn_regresarAuditoria.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_regresarAuditoria.setFocusPainted(false);
 
+        jButton_ExporExcel.setBackground(new java.awt.Color(255, 204, 0));
+        jButton_ExporExcel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jButton_ExporExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ex.png"))); // NOI18N
+        jButton_ExporExcel.setText("EXPORTAR EXCEL");
+        jButton_ExporExcel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_ExporExcelActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -97,7 +109,9 @@ public class FrmFiltroAuditoria extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addComponent(btn_regresarAuditoria, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(206, 206, 206)
+                .addGap(18, 18, 18)
+                .addComponent(jButton_ExporExcel)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel8)
                 .addGap(35, 35, 35)
                 .addComponent(jDateEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -113,17 +127,19 @@ public class FrmFiltroAuditoria extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jDateEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btn_filtrar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btn_regresarAuditoria, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jDateEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(btn_filtrar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(11, 11, 11)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btn_regresarAuditoria, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel8))))
+                    .addComponent(jButton_ExporExcel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(16, Short.MAX_VALUE))
@@ -141,10 +157,20 @@ public class FrmFiltroAuditoria extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton_ExporExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ExporExcelActionPerformed
+             ExportarExcel obj;
+            try {
+            obj = new ExportarExcel();
+            obj.exportarExcel(jTable_auditoria);
+            } catch (IOException ex) {
+                System.out.println("Erro " + ex);
+            }    }//GEN-LAST:event_jButton_ExporExcelActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton btn_filtrar;
     public static javax.swing.JButton btn_regresarAuditoria;
+    private javax.swing.JButton jButton_ExporExcel;
     private com.toedter.calendar.JCalendar jCalendar1;
     public static com.toedter.calendar.JDateChooser jDateEvento;
     private javax.swing.JLabel jLabel8;

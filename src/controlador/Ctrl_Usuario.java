@@ -97,7 +97,94 @@ public class Ctrl_Usuario implements ActionListener {
             }
 
         }
-        
+//        if (e.getSource() == vista.btn_guardar) {
+//            Usuario usuario = new Usuario();
+//            //crea un instancia
+//            Ctrl_encoder mEncoder = new Ctrl_encoder();
+//            Crud_Usuario controlUsuario = new Crud_Usuario();
+//            String rol = FrmUsuario.jComboBoxRol.getSelectedItem().toString().trim();
+//
+//            // Obtener valores de los campos
+//            String nombre = FrmUsuario.txt_nombre.getText().trim();
+//            String apellido = FrmUsuario.txt_apellido.getText().trim();
+//            String dni = FrmUsuario.txt_dni.getText().trim();
+//            String usuarioText = FrmUsuario.txt_usuario.getText().trim();
+//            String password = FrmUsuario.txt_password.getText().trim();
+//            // Encriptar la contraseña
+//            String passwordEncriptada = mEncoder.encode(password);
+//
+//            String telefono = FrmUsuario.txt_telefono.getText().trim();
+//
+//            // Validar que los campos no estén vacíos
+//            if (nombre.isEmpty() || apellido.isEmpty() || dni.isEmpty() || usuarioText.isEmpty() || password.isEmpty() || telefono.isEmpty()) {
+//                JOptionPane.showMessageDialog(null, "Completa todos los campos");
+//                //VALIDAR QUE LOS CAMPOS CUMPLA LAS CONDICIONES NUMÉRICAS Y LITERALES
+//            } else {
+//                boolean validacionNombre = esSoloLetras(nombre);
+//                boolean validacionApellido = esSoloLetras(apellido);
+//                boolean validacionDni = esNumerico(dni) && dni.length() == 8;
+//                boolean validacionTelefono = esNumerico(telefono) && telefono.length() == 9;
+//
+//                if (!validacionNombre && !validacionApellido) {
+//                    JOptionPane.showMessageDialog(null, "Los campos Nombre y Apellido solo aceptan letras");
+//                } else if (!validacionNombre) {
+//                    JOptionPane.showMessageDialog(null, "El campo Nombre solo acepta letras");
+//                } else if (!validacionApellido) {
+//                    JOptionPane.showMessageDialog(null, "El campo Apellido solo acepta letras");
+//                } else if (!validacionDni && !validacionTelefono) {
+//                    JOptionPane.showMessageDialog(null, "El DNI debe tener 8 dígitos y el campo TELÉFONO debe tener 9 dígitos, ambos solo aceptan valores numéricos");
+//                } else if (!validacionDni) {
+//                    JOptionPane.showMessageDialog(null, "El campo DNI debe tener 8 dígitos y solo acepta valores numéricos");
+//                } else if (!validacionTelefono) {
+//                    JOptionPane.showMessageDialog(null, "El campo TELÉFONO debe tener 9 dígitos y solo acepta valores numéricos");
+//                } else {
+//                    // Validar que se haya seleccionado un rol válido
+//                    if (rol.equalsIgnoreCase("Seleccione ROL:")) {
+//                        JOptionPane.showMessageDialog(null, "Seleccione un rol");
+//                    } else {
+//                        // Validar si el usuario ya está registrado
+//                        if (!controlUsuario.existeUsuario(dni)) {
+//                            // Enviar datos del usuario
+//                            usuario.setNombre(nombre);
+//                            usuario.setApellido(apellido);
+//
+//                            if (rol.equalsIgnoreCase("ADMIN")) {
+//                                usuario.setIdRol(1);
+//                            } else if (rol.equalsIgnoreCase("CAJERO")) {
+//                                usuario.setIdRol(2);
+//                            } else if (rol.equalsIgnoreCase("MESERO")) {
+//                                usuario.setIdRol(3);
+//                            }
+//
+//                            this.IdRol();
+//                            usuario.setIdRol(obtenerIdRolCombo);
+//
+//                            usuario.setDni(dni);
+//                            usuario.setUsuario(usuarioText);
+//                            usuario.setPassword(passwordEncriptada);
+////                            usuario.setPassword(password);
+//                            usuario.setTelefono(telefono);
+//                            usuario.setEstado(1);
+//
+//                            int confirmacion = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que quieres GUARDAR este USUARIO?", "Confirmar Actualización", JOptionPane.YES_NO_OPTION);
+//                            if (confirmacion == JOptionPane.YES_OPTION) {
+//                                if (controlUsuario.guardar(usuario)) {
+//                                    JOptionPane.showMessageDialog(null, "¡Usuario Registrado!");
+//                                    // Se enviará los datos a tb_auditoria
+//                                    registrarAccion("Logró agregar un(a) nuevo(a) usuario(a)");
+//                                    Crud_Usuario.CargarTablaUsuarios();
+//                                    Crud_Usuario.Limpiar();
+//                                } else {
+//                                    JOptionPane.showMessageDialog(null, "¡No se registró Usuario!");
+//                                }
+//                            }
+//                        } else {
+//                            JOptionPane.showMessageDialog(null, "El Usuario ya está registrado, ingrese otro.");
+//                        }
+//                    }
+//                }
+//            }
+//        }
         if (e.getSource() == vista.btn_guardar) {
             Usuario usuario = new Usuario();
             Ctrl_encoder mEncoder = new Ctrl_encoder();
@@ -124,7 +211,7 @@ public class Ctrl_Usuario implements ActionListener {
                 boolean validacionDni = esNumerico(dni) && dni.length() == 8;
                 boolean validacionTelefono = esNumerico(telefono) && telefono.length() == 9;
 
-                if (!validacionNombre || !validacionApellido) {
+                if (!validacionNombre && !validacionApellido) {
                     JOptionPane.showMessageDialog(null, "Los campos Nombre y Apellido solo aceptan letras");
                 } else if (!validacionNombre) {
                     JOptionPane.showMessageDialog(null, "El campo Nombre solo acepta letras");
@@ -216,18 +303,19 @@ public class Ctrl_Usuario implements ActionListener {
                     boolean validacionApellido = esSoloLetras(apellido);
                     boolean validacionDni = esNumerico(dni) && dni.length() == 8;
                     boolean validacionTelefono = esNumerico(telefono) && telefono.length() == 9;
-                    boolean validacionUsuario = tieneEspaciosBlancos(usuarioText);
 
-                    if (!validacionNombre) {
+                    if (!validacionNombre && !validacionApellido) {
+                        JOptionPane.showMessageDialog(null, "Los campos Nombre y Apellido solo aceptan letras");
+                    } else if (!validacionNombre) {
                         JOptionPane.showMessageDialog(null, "El campo Nombre solo acepta letras");
                     } else if (!validacionApellido) {
                         JOptionPane.showMessageDialog(null, "El campo Apellido solo acepta letras");
+                    } else if (!validacionDni && !validacionTelefono) {
+                        JOptionPane.showMessageDialog(null, "El DNI debe tener 8 dígitos y el campo TELÉFONO debe tener 9 dígitos, ambos solo aceptan valores numéricos");
                     } else if (!validacionDni) {
                         JOptionPane.showMessageDialog(null, "El campo DNI debe tener 8 dígitos y solo acepta valores numéricos");
                     } else if (!validacionTelefono) {
                         JOptionPane.showMessageDialog(null, "El campo TELÉFONO debe tener 9 dígitos y solo acepta valores numéricos");
-                    } else if(!validacionUsuario){
-                        JOptionPane.showMessageDialog(null, "El campo Usuario no puede contener espacios en blanco.");
                     } else {
                         // Validar que se haya seleccionado un rol válido
                         if (rol.equalsIgnoreCase("Seleccione ROL:")) {
@@ -404,10 +492,6 @@ public class Ctrl_Usuario implements ActionListener {
     // Comprueba que los campos solo contengan letras
 
     private boolean esSoloLetras(String str) {
-        return str.matches("^[a-zA-ZÀ-ÿ\\u00f1\\u00d1]+(\\s*[a-zA-ZÀ-ÿ\\u00f1\\u00d1]*)*[a-zA-ZÀ-ÿ\\u00f1\\u00d1]+$");
-    }
-    
-    private boolean tieneEspaciosBlancos(String str){
-        return str.matches("\".*\\\\S+.*\"");
+        return str.chars().allMatch(Character::isLetter);
     }
 }
