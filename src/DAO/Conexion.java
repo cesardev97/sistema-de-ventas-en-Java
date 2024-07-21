@@ -14,9 +14,6 @@ public class Conexion {
     public static Connection conectar() {
         try {
 
-// conexión antigua por si es necesario
-//            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_pizza", "root", "");
-// base de pruebas
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/panchispizza", "root", "root");
 
             return cn;

@@ -336,8 +336,6 @@ public class Crud_Producto extends Conexion {
      * **************************************************
      * metodo para eliminar un producto
      * **************************************************
-     * @param idProducto
-     * @return 
      */
     public boolean eliminar(int idProducto) {
         boolean respuesta = false;

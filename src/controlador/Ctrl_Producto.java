@@ -127,8 +127,7 @@ public class Ctrl_Producto implements ActionListener {
                                     precioTXT = FrmProducto.txt_precio.getText().trim();
                                     boolean aux = false;
                                     /*
-                            *Si el usuario ingresa , (coma) como punto decimal,
-                            lo transformamos a punto (.)
+                            *Si el usuario ingresa , (coma) como punto decimal, lo transformamos a punto (.)
                                      */
                                     for (int i = 0; i < precioTXT.length(); i++) {
                                         if (precioTXT.charAt(i) == ',') {
@@ -166,10 +165,7 @@ public class Ctrl_Producto implements ActionListener {
                                             JOptionPane.showMessageDialog(null, "Producto Guardado");
                                             //se enviará los datos a tb_aditoria
                                             registrarAccion("Logró agregar un nuevo producto");
-//                                txt_nombre.setBackground(Color.green);
-//                                txt_cantidad.setBackground(Color.green);
-//                                txt_precio.setBackground(Color.green);
-//                                txt_discripcion.setBackground(Color.green);
+
                                             Crud_Producto.CargarTablaProductos();
                                             Crud_Producto.CargarComboCategoria();
                                             FrmProducto.jComboBoxIGV.setSelectedItem("Seleccione IGV:");
@@ -197,8 +193,8 @@ public class Ctrl_Producto implements ActionListener {
             int idProducto = Crud_Producto.idProducto;
             Producto producto = new Producto();
             Crud_Producto controlProducto = new Crud_Producto();
-            String iva = FrmProducto.jComboBox_gestionarIGV.getSelectedItem().toString().trim();
-            String categoria = FrmProducto.jComboBox_gestionarCategoria.getSelectedItem().toString().trim();
+            String iva = "";
+            String categoria = "";
             String can = FrmProducto.txt_gestionar_cantidad.getText().trim();
             String pre = FrmProducto.txt_gestionar_precio.getText().trim();
 

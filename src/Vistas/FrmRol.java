@@ -5,6 +5,7 @@
 package Vistas;
 import DAO.Crud_Rol;
 import controlador.Ctrl_Rol;
+import java.io.IOException;
 public class FrmRol extends javax.swing.JPanel {
 
     public FrmRol() {
@@ -36,6 +37,7 @@ public class FrmRol extends javax.swing.JPanel {
         btn_eliminar = new javax.swing.JButton();
         btn_buscar = new javax.swing.JButton();
         txt_buscar_idRol = new javax.swing.JTextField();
+        jButton_ExporExcel = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(1010, 500));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -90,6 +92,7 @@ public class FrmRol extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable_rol.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -101,10 +104,14 @@ public class FrmRol extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable_rol);
 
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 64, 599, 216));
+
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("GESTIONAR ROLES");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 21, -1, -1));
 
         txt_gestionar_nombre.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "NOMBRE DE ROL", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
+        jPanel2.add(txt_gestionar_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 308, 259, 47));
 
         btn_actualizar.setBackground(new java.awt.Color(0, 0, 0));
         btn_actualizar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -113,6 +120,7 @@ public class FrmRol extends javax.swing.JPanel {
         btn_actualizar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btn_actualizar.setContentAreaFilled(false);
         btn_actualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel2.add(btn_actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 394, 133, 46));
 
         btn_eliminar.setBackground(new java.awt.Color(0, 0, 0));
         btn_eliminar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -121,6 +129,7 @@ public class FrmRol extends javax.swing.JPanel {
         btn_eliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btn_eliminar.setContentAreaFilled(false);
         btn_eliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel2.add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 394, 135, 46));
 
         btn_buscar.setBackground(new java.awt.Color(0, 0, 0));
         btn_buscar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -129,54 +138,34 @@ public class FrmRol extends javax.swing.JPanel {
         btn_buscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btn_buscar.setContentAreaFilled(false);
         btn_buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel2.add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(548, 394, 121, 46));
 
         txt_buscar_idRol.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Digita id para Buscar rol", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
+        jPanel2.add(txt_buscar_idRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(414, 304, 255, 56));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(69, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btn_actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(100, 100, 100)
-                        .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txt_gestionar_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txt_buscar_idRol, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(70, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(288, 288, 288)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_gestionar_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_buscar_idRol, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(59, 59, 59))
-        );
+        jButton_ExporExcel.setBackground(new java.awt.Color(255, 204, 0));
+        jButton_ExporExcel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jButton_ExporExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ex.png"))); // NOI18N
+        jButton_ExporExcel.setText("EXPORTAR EXCEL");
+        jButton_ExporExcel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_ExporExcelActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton_ExporExcel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 740, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton_ExporExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ExporExcelActionPerformed
+        ExportarExcel obj;
+        try {
+            obj = new ExportarExcel();
+            obj.exportarExcel(jTable_rol);
+        } catch (IOException ex) {
+            System.out.println("Erro " + ex);
+        }
+    }//GEN-LAST:event_jButton_ExporExcelActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -184,6 +173,7 @@ public class FrmRol extends javax.swing.JPanel {
     public static javax.swing.JButton btn_buscar;
     public javax.swing.JButton btn_eliminar;
     public javax.swing.JButton btn_guardar;
+    private javax.swing.JButton jButton_ExporExcel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

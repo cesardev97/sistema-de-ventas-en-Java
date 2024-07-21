@@ -103,7 +103,7 @@ public class FrmFacturacion extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable_productos);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Agregar Producto"));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Producto"));
 
         jComboProducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione producto:" }));
         jComboProducto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -158,7 +158,7 @@ public class FrmFacturacion extends javax.swing.JPanel {
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Buscar Cliente"));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Cliente"));
 
         jComboCliente.setBackground(new java.awt.Color(242, 242, 242));
         jComboCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Busque por nombre y seleccione un cliente:" }));
@@ -275,8 +275,6 @@ public class FrmFacturacion extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
         );
-
-        jPanel4.getAccessibleContext().setAccessibleDescription("");
 
         contenido.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 500));
 

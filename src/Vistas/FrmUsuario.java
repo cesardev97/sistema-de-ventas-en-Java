@@ -5,6 +5,7 @@
 package Vistas;
 import DAO.Crud_Usuario;
 import controlador.Ctrl_Usuario;
+import java.io.IOException;
 
 /**
  *
@@ -64,6 +65,7 @@ public class FrmUsuario extends javax.swing.JPanel {
         btn_ShowGestionar = new javax.swing.JButton();
         btn_NoShowGestionar = new javax.swing.JButton();
         txt_gestionar_password = new javax.swing.JPasswordField();
+        jButton_ExporExcel = new javax.swing.JButton();
 
         setFocusable(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -201,9 +203,11 @@ public class FrmUsuario extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel8.setText("GESTIONAR USUARIO ");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, -1, -1));
 
         txt_gestionar_nombre.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Nombre"));
         txt_gestionar_nombre.addActionListener(new java.awt.event.ActionListener() {
@@ -211,6 +215,7 @@ public class FrmUsuario extends javax.swing.JPanel {
                 txt_gestionar_nombreActionPerformed(evt);
             }
         });
+        jPanel2.add(txt_gestionar_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 286, 178, 56));
 
         jTable_usuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -225,6 +230,8 @@ public class FrmUsuario extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable_usuario);
 
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 85, 713, 183));
+
         btn_eliminar.setBackground(new java.awt.Color(0, 0, 0));
         btn_eliminar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/borrar.png"))); // NOI18N
@@ -233,6 +240,7 @@ public class FrmUsuario extends javax.swing.JPanel {
         btn_eliminar.setContentAreaFilled(false);
         btn_eliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_eliminar.setFocusPainted(false);
+        jPanel2.add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 429, 121, 46));
 
         btn_actualizar.setBackground(new java.awt.Color(255, 204, 0));
         btn_actualizar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -242,14 +250,19 @@ public class FrmUsuario extends javax.swing.JPanel {
         btn_actualizar.setContentAreaFilled(false);
         btn_actualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_actualizar.setFocusPainted(false);
+        jPanel2.add(btn_actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 429, 121, 46));
 
         txt_gestionar_apellido.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Apellido"));
+        jPanel2.add(txt_gestionar_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 286, 198, 54));
 
         txt_gestionar_telefono.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Teléfono"));
+        jPanel2.add(txt_gestionar_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 354, 178, 53));
 
         txt_gestionar_usuario.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Usuario"));
+        jPanel2.add(txt_gestionar_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 354, 198, 53));
 
         txt_gestionar_dni.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Dni"));
+        jPanel2.add(txt_gestionar_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(457, 286, 137, 54));
 
         btn_buscar.setBackground(new java.awt.Color(0, 0, 0));
         btn_buscar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -259,8 +272,10 @@ public class FrmUsuario extends javax.swing.JPanel {
         btn_buscar.setContentAreaFilled(false);
         btn_buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_buscar.setFocusPainted(false);
+        jPanel2.add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(428, 429, 121, 46));
 
         txt_buscar_dniUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Digita DNI para Buscar usuario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
+        jPanel2.add(txt_buscar_dniUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(567, 419, 193, 54));
 
         btn_auditoria.setBackground(new java.awt.Color(255, 204, 0));
         btn_auditoria.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -269,6 +284,7 @@ public class FrmUsuario extends javax.swing.JPanel {
         btn_auditoria.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btn_auditoria.setBorderPainted(false);
         btn_auditoria.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(btn_auditoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(634, 26, 126, 39));
 
         btn_Roles.setBackground(new java.awt.Color(255, 204, 0));
         btn_Roles.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -279,6 +295,7 @@ public class FrmUsuario extends javax.swing.JPanel {
         btn_Roles.setEnabled(false);
         btn_Roles.setFocusPainted(false);
         btn_Roles.setFocusable(false);
+        jPanel2.add(btn_Roles, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 26, 118, 39));
 
         jComboBox_gestionarRol.setBackground(new java.awt.Color(255, 204, 0));
         jComboBox_gestionarRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione ROL:", "ADMIN", "CAJERO", "MESERO" }));
@@ -287,6 +304,7 @@ public class FrmUsuario extends javax.swing.JPanel {
                 jComboBox_gestionarRolActionPerformed(evt);
             }
         });
+        jPanel2.add(jComboBox_gestionarRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(606, 286, 154, 45));
 
         btn_ShowGestionar.setBackground(new java.awt.Color(255, 204, 0));
         btn_ShowGestionar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -294,6 +312,7 @@ public class FrmUsuario extends javax.swing.JPanel {
         btn_ShowGestionar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btn_ShowGestionar.setBorderPainted(false);
         btn_ShowGestionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(btn_ShowGestionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 367, 40, 40));
 
         btn_NoShowGestionar.setBackground(new java.awt.Color(255, 204, 0));
         btn_NoShowGestionar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -301,89 +320,21 @@ public class FrmUsuario extends javax.swing.JPanel {
         btn_NoShowGestionar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btn_NoShowGestionar.setBorderPainted(false);
         btn_NoShowGestionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(btn_NoShowGestionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(669, 367, 45, 40));
 
         txt_gestionar_password.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Contraseña"));
+        jPanel2.add(txt_gestionar_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(458, 354, 193, 53));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txt_gestionar_telefono, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
-                                .addComponent(txt_gestionar_nombre))
-                            .addComponent(btn_actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(btn_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txt_buscar_dniUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(txt_gestionar_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txt_gestionar_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)
-                                .addComponent(jComboBox_gestionarRol, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(txt_gestionar_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(19, 19, 19)
-                                .addComponent(txt_gestionar_password, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btn_NoShowGestionar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_ShowGestionar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(btn_Roles, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(108, 108, 108)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
-                        .addComponent(btn_auditoria, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(29, 29, 29))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(btn_auditoria, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_Roles, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txt_gestionar_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txt_gestionar_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txt_gestionar_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
-                    .addComponent(jComboBox_gestionarRol, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btn_ShowGestionar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                            .addComponent(btn_NoShowGestionar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(txt_gestionar_password, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                    .addComponent(txt_gestionar_telefono)
-                    .addComponent(txt_gestionar_usuario, javax.swing.GroupLayout.Alignment.LEADING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_buscar_dniUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24))
-        );
+        jButton_ExporExcel.setBackground(new java.awt.Color(255, 204, 0));
+        jButton_ExporExcel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jButton_ExporExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ex.png"))); // NOI18N
+        jButton_ExporExcel.setText("EXPORTAR EXCEL");
+        jButton_ExporExcel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_ExporExcelActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton_ExporExcel, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, -1, 40));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 790, 500));
     }// </editor-fold>//GEN-END:initComponents
@@ -404,6 +355,16 @@ public class FrmUsuario extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_gestionar_nombreActionPerformed
 
+    private void jButton_ExporExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ExporExcelActionPerformed
+        ExportarExcel obj;
+        try {
+            obj = new ExportarExcel();
+            obj.exportarExcel(jTable_usuario);
+        } catch (IOException ex) {
+            System.out.println("Erro " + ex);
+        }
+    }//GEN-LAST:event_jButton_ExporExcelActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton btn_NoShow;
@@ -416,6 +377,7 @@ public class FrmUsuario extends javax.swing.JPanel {
     public static javax.swing.JButton btn_buscar;
     public javax.swing.JButton btn_eliminar;
     public javax.swing.JButton btn_guardar;
+    public static javax.swing.JButton jButton_ExporExcel;
     public static javax.swing.JComboBox<String> jComboBoxRol;
     public static javax.swing.JComboBox<String> jComboBox_gestionarRol;
     public static javax.swing.JLabel jLabel1;
