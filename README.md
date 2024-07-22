@@ -7,15 +7,16 @@ Este proyecto es un sistema de ventas para la pizzería Panchi's Pizzas, diseña
 ## Características 😀
 
 ### Para los Empleados: 👥
-- Registro de pedidos y generación de tickets
-- Gestión de inventario (Agregar, Editar, Eliminar)
+- Acceso al sistema con funciones necesarias
 - Consultas rápidas de productos y precios
 
 ### Para el Administrador: 👤
-- Gestión de productos (Crear, Leer, Actualizar, Eliminar)
-- Gestión de pedidos (Ver, Editar, Cancelar)
-- Reportes de ventas y análisis
-- Configuración de parámetros del sistema
+- Gestión de productos
+- Gestión de usuarios
+- Gestión de clientes
+- Gestión de facturación
+- Reportes de ventas, eventos, clientes, usuarios y productos
+- Gestión de auditoría del sistema
 
 ## Tecnologías Utilizadas 💻
 ![Static Badge](https://img.shields.io/badge/Java-%23F7DF1E?style=for-the-badge&logo=java&logoSize=auto&labelColor=black)
