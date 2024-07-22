@@ -37,7 +37,6 @@ Este proyecto es un sistema de ventas para la pizzería Panchi's Pizzas, diseña
 - [MySQL](https://www.mysql.com/products/workbench/) instalado en tu máquina.
 - [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html) instalado en tu máquina.
 - [Maven](https://maven.apache.org/download.cgi) instalado para la gestión de dependencias.
-- Un navegador web moderno (Google Chrome, Firefox, etc.) para la interfaz web (si aplica).
 
 ## Licencia 📄
 
